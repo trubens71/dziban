@@ -123,6 +123,8 @@ class Encoding(object):
         scale = 'log({0},{1})'.format(vid, eid)
       elif (self._scale == 'zero'):
         scale = 'zero({0},{1})'.format(vid, eid)
+      elif (self._scale == 'no_zero'):  # verde addition to allow no zero to be specific
+        scale = 'not zero({0},{1})'.format(vid, eid)
       facts.append(scale)
 
     conditioned_facts = [':- {0}, not {1}.'.format(condition, f) for f in facts]
